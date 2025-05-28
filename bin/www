@@ -1,0 +1,15 @@
+const { setupOpenTelemetry } = require('./opentelemetry');
+setupOpenTelemetry();
+const fastify = require('../app');
+require('../src/utils/redis')
+
+const PORT = process.env.PORT || 3000;
+
+fastify.listen({ port: PORT }, (err, address) => {
+    if (err) {
+        console.error(err);
+        fastify.log.error(err)
+        process.exit(1);
+    }
+    console.log(`🚀 Server running at ${address}`);
+});
