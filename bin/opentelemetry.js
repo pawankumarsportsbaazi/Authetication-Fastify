@@ -7,11 +7,11 @@ import { OTLPMetricExporter } from '@opentelemetry/exporter-metrics-otlp-http';
 
 const setupOpenTelemetry = () => {
     const traceExporter = new OTLPTraceExporter({
-        url: 'http://13.201.137.51:4318/v1/traces',
+        url: 'http://your_host/v1/traces',
     });
 
     const metricExporter = new OTLPMetricExporter({
-        url: 'http://13.201.137.51:4318/v1/metrics',
+        url: 'http://your_host/v1/metrics',
     });
 
     const sdk = new NodeSDK({
